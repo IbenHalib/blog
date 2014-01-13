@@ -35,6 +35,18 @@ class LoadTagData extends AbstractFixture implements OrderedFixtureInterface
 
     }
 
+    protected function getReferencesFromArray(array $array)
+    {
+        $outputReferences = new ArrayCollection();
+
+        foreach ($array as $reference) {
+            $outputReferences->add($this->getReference($reference));
+        }
+
+        return $outputReferences;
+    }
+
+
 
     /**
      * {@inheritDoc}

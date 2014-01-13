@@ -1,0 +1,17 @@
+{% extends 'VadimBlogBundle::layout.html.twig' %}
+
+{% block body %}
+    <div class="container">
+    {% block navbar %}
+        {% include('VadimBlogBundle:Default:nav_menu.html.twig') %}
+    {% endblock navbar %}
+
+    {% block panel %}
+        {{ include('VadimBlogBundle:Default:panel.html.twig', {'mostViewArticles': mostViewArticles , 'lastArticles':lastArticles}) }}
+    {% endblock panel %}
+
+    {% block page_content %}
+
+    {% endblock page_content %}
+    </div>
+{% endblock body %}

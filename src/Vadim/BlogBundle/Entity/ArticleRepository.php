@@ -9,7 +9,7 @@ class ArticleRepository extends EntityRepository
     public function findByLastArticles($limit)
     {
         return $this->getEntityManager()
-            ->createQuery('SELECT a FROM VadimBlogBundle:Article a ORDER BY a.created DESC')
+            ->createQuery('SELECT a FROM VadimBlogBundle:Article a ORDER BY a.id DESC')
             ->setMaxResults($limit)
             ->getResult();
     }
@@ -31,12 +31,5 @@ class ArticleRepository extends EntityRepository
             ->setMaxResults($limit)
             ->getResult();
     }
-    public function findByTag($tag, $limit)
-    {
-        return $this->getEntityManager()
-            ->createQuery("SELECT a FROM VadimBlogBundle:Article a WHERE a.title LIKE :title ORDER BY a.id DESC")
-            ->setParameter('title', '%'.$tag.'%')
-            ->setMaxResults($limit)
-            ->getResult();
-    }
+
 }

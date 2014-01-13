@@ -1,3 +1,5 @@
+{% extends "VadimBlogBundle:Default:blog_layot.html.twig" %}
+{% block page_content %}
 <ul>
     {% for article in articles %}
         <li>
@@ -8,3 +10,4 @@
 
     {% endfor %}
 </ul>
+{% block page_content %}

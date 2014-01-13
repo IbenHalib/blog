@@ -20,7 +20,9 @@ class DefaultController extends Controller
             ->getRepository('VadimBlogBundle:Article')
             ->findAll();
         //$category = $articles->getArticles();
-        return array('articles' => $articles);
+        return array('articles' => $articles,
+                     'mostViewArticles'=> $this->mostViewArticles(),
+                     'lastArticles' =>  $this->lastArticles());
 
     }
 
@@ -32,7 +34,9 @@ class DefaultController extends Controller
         $about = $this->getDoctrine()
             ->getRepository('VadimBlogBundle:About')
             ->findAll();
-        return array('about' => $about);
+        return array('about' => $about,
+            'mostViewArticles'=> $this->mostViewArticles(),
+            'lastArticles' =>  $this->lastArticles());
 
     }
 
@@ -50,7 +54,9 @@ class DefaultController extends Controller
         $article->setNumberOfViews($article->getNumberOfViews() + 1);
         $em->flush();
 
-        return array('article' => $article);
+        return array('article' => $article,
+            'mostViewArticles'=> $this->mostViewArticles(),
+            'lastArticles' =>  $this->lastArticles());
 
 
     }
@@ -63,7 +69,9 @@ class DefaultController extends Controller
         $articles = $em
             ->getRepository('VadimBlogBundle:Article')
             ->findByTitleLike($title,10);
-        return array('articles' => $articles);
+        return array('articles' => $articles,
+            'mostViewArticles'=> $this->mostViewArticles(),
+            'lastArticles' =>  $this->lastArticles());
 
     }
 
@@ -72,11 +80,22 @@ class DefaultController extends Controller
      */
     public function lastArticlesAction()
     {
-        $articles = $this->getDoctrine()
+        $em = $this->getDoctrine()->getManager();
+
+        $articles = $em
             ->getRepository('VadimBlogBundle:Article')
             ->findByLastArticles(10);
         return array('articles' => $articles);
     }
+
+    public function lastArticles()
+    {   $em = $this->getDoctrine()->getManager();
+
+        return $em
+            ->getRepository('VadimBlogBundle:Article')
+            ->findByLastArticles(10);
+    }
+
 
     /**
      * @Template()
@@ -91,6 +110,17 @@ class DefaultController extends Controller
         return array('articles' => $articles);
     }
 
+    public function mostViewArticles()
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        return  $em
+            ->getRepository('VadimBlogBundle:Article')
+            ->findByMostViewArticles(20);
+
+    }
+
+
     /**
      * @Template()
      */
@@ -102,7 +132,9 @@ class DefaultController extends Controller
             ->getRepository('VadimBlogBundle:Tag')
             ->find($id);
         $articles = $tag->getArticles();
-        return array('articles' => $articles, 'tag' => $tag);
+        return array('articles' => $articles, 'tag' => $tag,
+            'mostViewArticles'=> $this->mostViewArticles(),
+            'lastArticles' =>  $this->lastArticles());
 
     }
 
@@ -117,7 +149,9 @@ class DefaultController extends Controller
             ->getRepository('VadimBlogBundle:Category')
             ->find($id);
         $articles = $category->getArticles();
-        return array('articles' => $articles, 'category' => $category);
+        return array('articles' => $articles, 'category' => $category,
+            'mostViewArticles'=> $this->mostViewArticles(),
+            'lastArticles' =>  $this->lastArticles());
 
     }
 

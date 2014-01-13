@@ -1,10 +1,7 @@
-{% extends "VadimBlogBundle:Default:blog_layot.html.twig" %}
-
-{% block page_content %}
-{{ category.name }}
-
+{#{% extends VadimBlogBundle::layout.html.twig %}#}
+<p> most View Articles</p>
 <ul>
-    {% for article in articles %}
+    {% for article in mostViewArticles %}
         <li>
             <a href="{{ path('_see', {'id': article.id}) }}">
                 {{ article.title }}
@@ -13,4 +10,3 @@
 
     {% endfor %}
 </ul>
-{% endblock page_content %}

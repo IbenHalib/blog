@@ -1,6 +1,23 @@
-{% for article in articles %}
-    <p>{{ article.title }}</p>
-    {{ article.body }}
+{% extends "VadimBlogBundle:Default:blog_layot.html.twig" %}
+{% block page_content %}
+    {% block title %}
+        Blog
+    {% endblock title %}
 
+    {% for article in articles %}
+        <p><a href="{{ path('_see', {'id': article.id}) }}">
+            {{ article.title }}</a></p>
+            {{ article.body }}...
+        <br>
+            {{ article.created|date('d.m.Y') }}
+        <br>
+            <a href="{{ path('_category' ,{'id':article.category.id}) }}"> {{ article.category.name }}</a>
+        <br>
+
+    {% for tag in article.tags %}
+        <a href="{{ path('_tag' ,{'id':tag.id})}}"> {{ tag.name }}</a>
+    {% endfor %}
     <br>
 {% endfor %}
+{% endblock page_content %}
+

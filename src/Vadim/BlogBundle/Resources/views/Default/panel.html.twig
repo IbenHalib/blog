@@ -1,2 +1,2 @@
-{{ render(controler('VadimBlogBundle:Default:_lastArticles:')) }}
-{{ render(controler('VadimBlogBundle:Default:_mostViewArticles')) }}
+{{ include('VadimBlogBundle:Default:mostViewArticles.html.twig', {'mostViewArticles': mostViewArticles}) }}
+{{ include('VadimBlogBundle:Default:lastArticles.html.twig', {'lastArticles': lastArticles}) }}

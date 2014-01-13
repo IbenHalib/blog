@@ -18,7 +18,7 @@ _searchArticle:
         pattern: /searchArticle/{title}
         defaults: {_controller: VadimBlogBundle:Default:searchArticle}
 
-_tagArticle:
+_tag:
         pattern: /tag/{id}
         defaults: {_controller: VadimBlogBundle:Default:tag}
 
