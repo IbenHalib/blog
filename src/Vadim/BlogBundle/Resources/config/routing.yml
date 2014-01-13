@@ -1,0 +1,32 @@
+_about:
+        pattern: /about/
+        defaults: {_controller: VadimBlogBundle:Default:about}
+
+_see:
+        pattern: /see/{id}
+        defaults: {_controller: VadimBlogBundle:Default:see}
+
+_mostView:
+        pattern: /mostView/
+        defaults: {_controller: VadimBlogBundle:Default:mostView}
+
+_lastArticles:
+        pattern: /lastArticles/
+        defaults: {_controller: VadimBlogBundle:Default:lastArticles}
+
+_searchArticle:
+        pattern: /searchArticle/{title}
+        defaults: {_controller: VadimBlogBundle:Default:searchArticle}
+
+_tagArticle:
+        pattern: /tag/{id}
+        defaults: {_controller: VadimBlogBundle:Default:tag}
+
+_category:
+        pattern: /category/{id}
+        defaults: {_controller: VadimBlogBundle:Default:category}
+
+_blog:
+        pattern: /blog/
+        defaults: {_controller: VadimBlogBundle:Default:blog}
+

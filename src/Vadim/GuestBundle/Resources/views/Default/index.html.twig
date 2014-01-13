@@ -1,0 +1,47 @@
+{% extends 'VadimGuestBundle:Default:layout.html.twig' %}
+{% block body %}
+<div>
+{{ form(form) }}
+</div>
+
+<div class ="posts">
+    <div class="container posts-container">
+ {% for post in posts %}
+
+         <div class="panel panel-default">
+         <div class="panel-heading">
+             <div class="pull-left">
+                 {{ post.name }} ({{ post.email }})
+             </div>
+
+            <div class="panel-body">
+             {{ post.post }}
+             </div>
+         </div>
+         <ul class="nav">
+             <li class="active">
+                 <a href="{{ path('vadim_delete', {'id': post.id}) }}"> {{ 'delete' }}
+                 </a>
+             </li>
+             <li> <a href="{{ path('vadim_see', {'id': post.id}) }}"> {{ 'see' }}
+                 </a></li>
+
+         </ul>
+
+     </div>
+
+
+
+ {% endfor %}
+</div>
+    </div>
+
+    <div class="navbar navbar-default navbar-fixed-bottom">
+        <div class="text-center">
+              <div class="paginator">
+                {{ knp_pagination_render(posts) }}
+            </div>
+        </div>
+    </div>
+
+{% endblock body %}

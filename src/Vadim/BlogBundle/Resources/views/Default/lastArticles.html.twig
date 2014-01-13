@@ -1,0 +1,11 @@
+{% extends ::base.html.twig %}
+<ul class="nav">
+    {% for article in articles %}
+    <li class="active">
+        <a href="{{ path("/see/{'id': article.id}") }}">
+            {{ article.title }}
+        </a>
+    </li>
+
+{% endfor %}
+</ul>

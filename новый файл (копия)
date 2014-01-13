@@ -1,0 +1,54 @@
+<?php
+
+namespace Vadim\BlogBundle\DataFixtures\ORM;
+
+use Doctrine\Common\DataFixtures\AbstractFixture;
+use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
+use Doctrine\Common\Persistence\ObjectManager;
+use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Component\Yaml\Yaml;
+use Vadim\BlogBundle\Entity\Article;
+
+class LoadArticleData extends AbstractFixture implements OrderedFixtureInterface
+{
+    /**
+     * {@inheritDoc}
+     */
+    public function load(ObjectManager $manager)
+    {
+//        for($i=0;$i < 21; $i++)
+//        {
+//            $articlesData["Article $i"] = array('title' =>"Artikle$i",'body' => "body vhdghdghdv$i",
+//            'vievs' => $i, 'category' =>'symfony', 'tags' =>array('symfony', 'php,'));
+//        }
+
+
+        for($i=0;$i < 21; $i++) {
+            $article = new Article();
+
+            $article->setCategory($this->getReference('symfony2', $article));
+            $article->setTitle("title$i");
+           // $article->setImg($value['img']);
+            $article->setBody("body$i dnddv");
+            $article->setCreated(new \DateTime());
+            $article->setTags($this->getReference('php','html'));
+            $article->setNumberOfViews($i);
+
+            $manager->persist($article);
+            $this->addReference("titlre$i", $article);
+        }
+
+        $manager->flush();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getOrder()
+    {
+        return 5;
+    }
+
+
+}
+

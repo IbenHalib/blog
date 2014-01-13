@@ -1,0 +1,8 @@
+vadim_blog:
+    resource: "@VadimBlogBundle/Resources/config/routing.yml"
+    prefix:   /
+
+vadim_guest:
+    resource: "@VadimGuestBundle/Resources/config/routing.yml"
+    prefix:   /
+

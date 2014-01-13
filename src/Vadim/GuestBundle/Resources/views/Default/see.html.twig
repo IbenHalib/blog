@@ -1,0 +1,15 @@
+{% extends 'VadimGuestBundle:Default:layout.html.twig' %}
+
+{% block body %}
+<h1> {{ post.name }}</h1>
+<br> {{ post.email }}
+<br> {{ post.post }}
+
+    <ul class="nav">
+        <li class="active">
+            <a href="{{ path('vadim_index') }}"> {{ 'home' }}
+            </a>
+        </li>
+
+    </ul>
+{% endblock body %}

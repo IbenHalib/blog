@@ -16,6 +16,13 @@ class AppKernel extends Kernel
             new Symfony\Bundle\AsseticBundle\AsseticBundle(),
             new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
+
+            new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
+            new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
+            new Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle(),
+            new \Braincrafted\Bundle\BootstrapBundle\BraincraftedBootstrapBundle(),
+            new Vadim\BlogBundle\VadimBlogBundle(),
+            new Vadim\GuestBundle\VadimGuestBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

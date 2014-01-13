@@ -1,0 +1,27 @@
+{% extends 'VadimBlogBundle::layout.html.twig' %}
+
+{% block title %}
+    About me
+{% endblock title %}
+
+
+
+{% block body %}
+
+    <ul class="nav nav-pills">
+        <li class="active"><a href="{{ path('_about' )}}"> {{ 'About' }}
+        </a></li>
+        <li><a href="{{ path('_blog' )}}"> {{ 'Blog' }}</a></li>
+        <li><a href="/guestbook/index">GuestBook</a></li>
+    </ul>
+
+    {% for about_me in about %}
+        {{ about_me.body }}
+
+        {{ about_me.title }}
+    {% endfor %}
+
+    {#{{ include(#}
+    {#'VadimBlogBundle:Default:panel.html.twig',{}#}
+    {#) }}#}
+{% endblock body %}

@@ -1,0 +1,16 @@
+vadim_index:
+    pattern:  /guest/index
+    defaults: { _controller: VadimGuestBundle:Default:index }
+
+
+vadim_create:
+    pattern:  /guest/create
+    defaults: { _controller: VadimGuestBundle:Default:create }
+
+vadim_delete:
+     pattern:  /guest/delete/{id}
+     defaults: { _controller: VadimGuestBundle:Default:delete }
+
+vadim_see:
+     pattern:  /guest/see/{id}
+     defaults: { _controller: VadimGuestBundle:Default:see }
