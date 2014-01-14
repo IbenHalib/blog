@@ -22,7 +22,9 @@
         "braincrafted/bootstrap-bundle": "v2.0.0-beta1",
         "knplabs/knp-paginator-bundle": "2.3.3",
         "doctrine/doctrine-fixtures-bundle": "v2.2.0",
+        "white-october/pagerfanta-bundle": "dev-master",
         "twbs/bootstrap": "3.0.*",
+        "liip/imagine-bundle":"dev-master",
         "stof/doctrine-extensions-bundle": "~1.1@dev",
         "jquery/jquery":  "1.10.*"
     },

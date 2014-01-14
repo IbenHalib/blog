@@ -1,13 +1,14 @@
 {% extends "VadimBlogBundle:Default:blog_layot.html.twig" %}
-{% block page_content %}
     {% block title %}
         Blog
     {% endblock title %}
 
+{% block page_content %}
+
     {% for article in articles %}
         <p><a href="{{ path('_see', {'id': article.id}) }}">
             {{ article.title }}</a></p>
-            {{ article.body }}...
+            {{- article.body|dotdotdot(5) -}}
         <br>
             {{ article.created|date('d.m.Y') }}
         <br>
@@ -19,5 +20,6 @@
     {% endfor %}
     <br>
 {% endfor %}
+    {#{{ form(formSearch) }}#}
 {% endblock page_content %}
 

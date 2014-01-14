@@ -1,12 +1,12 @@
 {#{% extends ::base.html.twig %}#}
 <p> Last Articles</p>
-<ul class="nav">
+{#<ul class="nav navbar-nav">#}
     {% for article in lastArticles %}
-    <li class="active">
-        <a href="{{ path('_see', {'id': article.id}) }}">
+    {#<li class="active">#}
+        <a href="{{ path('_see', {'id': article.id}) }}" class="list-group-item">
             {{ article.title }}
         </a>
-    </li>
+    {#</li>#}
 
 {% endfor %}
-</ul>
+{#</ul>#}

@@ -34,7 +34,8 @@ class DefaultController extends Controller
 
         $posts = $paginator->paginate(
             $query,
-            $numberPage,10
+            $numberPage,
+            10
             //$this->container->getParameter('posts_on_page')
         );
 
@@ -45,7 +46,7 @@ class DefaultController extends Controller
                 $em = $this->getDoctrine()->getManager();
                 $em->persist($post);
                 $em->flush();
-               // return $this->redirect($this->generateUrl('vadim_create'));
+//                return $this->redirect($this->generateUrl('vadim_guest_create'));
         }
 
         return $this->render('VadimGuestBundle:Default:index.html.twig', array(
@@ -66,7 +67,7 @@ class DefaultController extends Controller
         $em->remove($post);
         $em->flush();
 
-        return $this->redirect($this->generateUrl('vadim_index'));
+        return $this->redirect($this->generateUrl('vadim_guest_index'));
 
 
     }

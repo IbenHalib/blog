@@ -8,7 +8,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Post
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="Vadim\GuestBundle\Entity\PostRepository")
  * @ORM\Table(name="post")
   */
 class Post

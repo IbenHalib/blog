@@ -6,15 +6,21 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Vadim\BlogBundle\Entity\Article;
+use Pagerfanta\Adapter\DoctrineORMAdapter;
+use Pagerfanta\Pagerfanta;
+use Vadim\BlogBundle\Form\Type\SearchType;
+use Vadim\BlogBundle\Entity\Search;
+use Symfony\Component\HttpFoundation\Request;
 
 class DefaultController extends Controller
 {
     /**
      * @Template()
      */
-    public function blogAction()
+    public function blogAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
+
 
         $articles = $em
             ->getRepository('VadimBlogBundle:Article')
@@ -22,10 +28,26 @@ class DefaultController extends Controller
         //$category = $articles->getArticles();
         return array('articles' => $articles,
                      'mostViewArticles'=> $this->mostViewArticles(),
-                     'lastArticles' =>  $this->lastArticles());
+                     'lastArticles' =>  $this->lastArticles(),
+                     'lastPosts' => $this->lastPosts());
+                    // 'formSearch' => $this->search($request));
 
     }
 
+    public function search(Request $request)
+    {
+        $search = new Search();
+
+        $form =$this->createForm(new SearchType(), $search);
+
+        $form->handleRequest($request);
+
+        if ($form->isValid()) {
+           return $this->redirect($this->generateUrl('_searchArticle',array('title' => $search)));
+        }
+
+        return  $form->createView();
+    }
     /**
      * @Template()
      */
@@ -36,7 +58,8 @@ class DefaultController extends Controller
             ->findAll();
         return array('about' => $about,
             'mostViewArticles'=> $this->mostViewArticles(),
-            'lastArticles' =>  $this->lastArticles());
+            'lastArticles' =>  $this->lastArticles(),
+            'lastPosts' => $this->lastPosts());
 
     }
 
@@ -56,7 +79,8 @@ class DefaultController extends Controller
 
         return array('article' => $article,
             'mostViewArticles'=> $this->mostViewArticles(),
-            'lastArticles' =>  $this->lastArticles());
+            'lastArticles' =>  $this->lastArticles(),
+            'lastPosts' => $this->lastPosts());
 
 
     }
@@ -71,7 +95,8 @@ class DefaultController extends Controller
             ->findByTitleLike($title,10);
         return array('articles' => $articles,
             'mostViewArticles'=> $this->mostViewArticles(),
-            'lastArticles' =>  $this->lastArticles());
+            'lastArticles' =>  $this->lastArticles(),
+            'lastPosts' => $this->lastPosts());
 
     }
 
@@ -120,6 +145,15 @@ class DefaultController extends Controller
 
     }
 
+    public function lastPosts()
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        return  $em
+            ->getRepository('VadimGuestBundle:Post')
+            ->findByLastPosts(20);
+    }
+
 
     /**
      * @Template()
@@ -134,7 +168,8 @@ class DefaultController extends Controller
         $articles = $tag->getArticles();
         return array('articles' => $articles, 'tag' => $tag,
             'mostViewArticles'=> $this->mostViewArticles(),
-            'lastArticles' =>  $this->lastArticles());
+            'lastArticles' =>  $this->lastArticles(),
+            'lastPosts' => $this->lastPosts());
 
     }
 
@@ -151,7 +186,8 @@ class DefaultController extends Controller
         $articles = $category->getArticles();
         return array('articles' => $articles, 'category' => $category,
             'mostViewArticles'=> $this->mostViewArticles(),
-            'lastArticles' =>  $this->lastArticles());
+            'lastArticles' =>  $this->lastArticles(),
+            'lastPosts' => $this->lastPosts());
 
     }
 

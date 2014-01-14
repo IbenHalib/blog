@@ -5,14 +5,14 @@
     xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
 
 
-    <parameters>
-        <parameter key="vadim_guest.example.class">Vadim\GuestBundle\Form\Type\PostType</parameter>
-    </parameters>
+    <!--<parameters>-->
+        <!--<parameter key="vadim_guest.example.class">Vadim\GuestBundle\Form\Type\PostType</parameter>-->
+    <!--</parameters>-->
 
-    <services>
-        <service id="vadim_guest.example" class="%vadim_guest.example.class%">
-            <tag name="form.type" alias="post" />
-        </service>
-    </services>
+    <!--<services>-->
+        <!--<service id="vadim_guest.example" class="%vadim_guest.example.class%">-->
+            <!--<tag name="form.type" alias="post" />-->
+        <!--</service>-->
+    <!--</services>-->
 
 </container>

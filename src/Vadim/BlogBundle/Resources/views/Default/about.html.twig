@@ -10,9 +10,10 @@
 
 
     {% for about_me in about %}
-        {{ about_me.body }}
+        <h1>{{ about_me.title }}</h1>
+        <p>{{ about_me.body }}
 
-        {{ about_me.title }}
+
     {% endfor %}
 
     {#{{ include(#}
