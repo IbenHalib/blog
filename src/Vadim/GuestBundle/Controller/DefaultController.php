@@ -27,17 +27,19 @@ class DefaultController extends Controller
 
         $manager = $this->getDoctrine()->getManager();
 
-        $query = $manager->createQuery('SELECT t FROM VadimGuestBundle:Post t ORDER BY t.id DESC');
+//        $query = $manager->createQuery('SELECT t FROM VadimGuestBundle:Post t ORDER BY t.id DESC');
+//
+//        $paginator = $this->get('knp_paginator');
+//
+//
+//        $posts = $paginator->paginate(
+//            $query,
+//            $numberPage,
+//            10
+//            //$this->container->getParameter('posts_on_page')
+//        );
 
-        $paginator = $this->get('knp_paginator');
-
-
-        $posts = $paginator->paginate(
-            $query,
-            $numberPage,
-            10
-            //$this->container->getParameter('posts_on_page')
-        );
+        $posts = $manager ->getRepository('VadimGuestBundle:Post')->findAll();
 
         //var_dump($paginator);
         $form->handleRequest($request);

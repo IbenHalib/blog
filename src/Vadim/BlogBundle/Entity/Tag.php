@@ -10,7 +10,7 @@ use Doctrine\Common\Collections\ArrayCollection;
  * Tag
  *
  * @ORM\Table(name="tags")
- * @ORM\Entity()
+ * @ORM\Entity(repositoryClass="Vadim\BlogBundle\Entity\TagRepository")
  */
 class Tag
 {
@@ -30,7 +30,15 @@ class Tag
      */
     protected $name;
 
+    /**
+     * @ORM\Column(name="times_used", type="integer")
+     */
+    protected $timesUsed = 0;
 
+    /**
+     * @ORM\Column(name="font_size", type="integer")
+     */
+     protected $fontSize = 30;
     /**
      * @ORM\ManyToMany(targetEntity="Article", inversedBy="tags")
      */
@@ -65,6 +73,23 @@ class Tag
     }
 
     /**
+     * @return mixed
+     */
+    public function getTimesUsed()
+    {
+        return $this->timesUsed;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getFontSize()
+    {
+        return $this->fontSize;
+    }
+
+
+    /**
      * @param mixed $articles
      */
     public function setArticles(ArrayCollection $articles)
@@ -86,6 +111,22 @@ class Tag
     public function setName($name)
     {
         $this->name = $name;
+    }
+
+    /**
+     * @param mixed $timesUsed
+     */
+    public function setTimesUsed($timesUsed)
+    {
+        $this->timesUsed = $timesUsed;
+    }
+
+    /**
+     * @param mixed $fontSize
+     */
+    public function setFontSize($fontSize)
+    {
+        $this->fontSize = $fontSize;
     }
 
 

@@ -1,6 +1,7 @@
-{% extends 'VadimGuestBundle:Default:layout.html.twig' %}
+{% extends 'VadimGuestBundle::layout.html.twig' %}
 
-{% block body %}
+{% block page_content %}
+
 <h1> {{ post.name }}</h1>
 <br> {{ post.email }}
 <br> {{ post.post }}
@@ -12,4 +13,4 @@
         </li>
 
     </ul>
-{% endblock body %}
+{% endblock  page_content %}

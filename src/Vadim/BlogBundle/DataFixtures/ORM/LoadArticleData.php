@@ -24,7 +24,10 @@ class LoadArticleData extends AbstractFixture implements OrderedFixtureInterface
             $article->setTitle("title$i");
            // $article->setImg($value['img']);
             $article->setBody("body$i dnddv");
-            $article->setTags($this->getReferencesFromArray(array('html')));
+
+            $article->getTags()->add($this->getReference('html'));
+
+            $this->getReference('html')->getArticles()->add($article);
             $article->setNumberOfViews($i);
 
             $manager->persist($article);
@@ -32,19 +35,51 @@ class LoadArticleData extends AbstractFixture implements OrderedFixtureInterface
         }
 
         $manager->flush();
-    }
 
-    protected function getReferencesFromArray(array $array)
-        {
-            $outputReferences = new ArrayCollection();
+        $manager->clear();
 
-            foreach ($array as $reference) {
-                $outputReferences->add($this->getReference($reference));
-            }
 
-            return $outputReferences;
+        $ar = $manager->getRepository('VadimBlogBundle:Article');
+        $articles = $ar->findAll();
+
+        $tr = $manager->getRepository('VadimBlogBundle:Tag');
+        $tags = $tr->findAll();
+                foreach ($tags as $tag) {
+            $arr[$tag->getName()] = 0;
         }
 
+        foreach ($articles as $article) {
+
+
+            foreach ($article->getTags() as $tag) {
+                $arr[$tag->getName()]++;
+            }
+        }
+
+$maxTimesUsed = 0;
+        foreach ($tags as $tag) {
+        if ($arr[$tag->getName()] > $maxTimesUsed)
+        {
+        $maxTimesUsed = $arr[$tag->getName()];
+        }
+            $tag->setTimesUsed($arr[$tag->getName()] );
+        }
+        $manager->flush();
+
+
+        $tr = $manager->getRepository('VadimBlogBundle:Tag');
+
+                $tags = $tr->findByTimesUsed();
+                $maxFontSize = 40;
+                $sizeOne = $maxFontSize/$maxTimesUsed;
+                foreach ($tags as $tag) {
+                    $tag->setFontSize( $sizeOne * $tag->getTimesUsed());
+
+                }
+
+ $manager->flush();
+
+    }
 
     /**
      * {@inheritDoc}
@@ -53,6 +88,34 @@ class LoadArticleData extends AbstractFixture implements OrderedFixtureInterface
     {
         return 5;
     }
+
+    protected function updateTag(ObjectManager $manager)
+        {
+
+
+            $manager->clear();
+
+            $articles = $manager
+                ->getRepository('VadimBlogBundle:Article')
+                ->findAll();
+            $array = array();
+            foreach ($articles->getTags as $tag) {
+                $array["$tag->getName" ]++;
+
+            }
+
+
+            foreach ($array as $key =>$usetTag) {
+                $tag = $manager
+                    ->getRepository('VadimBlogBundle:Tag')
+                    ->findOneByName($key);
+                $tag->setTimesUsed($usetTag);
+                $manager->flush();
+            }
+
+
+        }
+
 
 
 }

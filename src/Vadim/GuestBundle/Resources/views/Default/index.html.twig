@@ -1,5 +1,5 @@
-{% extends 'VadimGuestBundle:Default:layout.html.twig' %}
-{% block body %}
+{% extends 'VadimGuestBundle::layout.html.twig' %}
+{% block page_content %}
 <div>
 {{ form(form) }}
 </div>
@@ -33,15 +33,5 @@
 
 
  {% endfor %}
-</div>
-    </div>
 
-    <div class="navbar navbar-default navbar-fixed-bottom">
-        <div class="text-center">
-              <div class="paginator">
-                {{ knp_pagination_render(posts) }}
-            </div>
-        </div>
-    </div>
-
-{% endblock body %}
+{% endblock  page_content %}

@@ -1,13 +1,22 @@
-{% extends "VadimBlogBundle:Default:blog_layot.html.twig" %}
-{% block page_content %}
-<ul>
-    {% for article in articles %}
-        <li>
-            <a href="{{ path('_see', {'id': article.id}) }}">
-                {{ article.title }}
-            </a>
-        </li>
+{#{% extends "VadimBlogBundle:Default:blog_layot.html.twig" %}#}
+{#{% block page_content %}#}
+{{ form_start(form) }}
+ <div class="form-group">
+    {{ form_widget(form.name) }}
+</div>
 
-    {% endfor %}
-</ul>
-{% block page_content %}
+{#<div>#}
+    {{ form_widget(form.save) }}
+{#</div>#}
+{{ form_end(form) }}
+{#<ul>#}
+    {#{% for article in searchArticles %}#}
+        {#<li>#}
+            {#<a href="{{ path('_see', {'id': article.id}) }}">#}
+                {#{{ article.title }}#}
+            {#</a>#}
+        {#</li>#}
+
+    {#{% endfor %}#}
+{#</ul>#}
+{#{% block page_content %}#}

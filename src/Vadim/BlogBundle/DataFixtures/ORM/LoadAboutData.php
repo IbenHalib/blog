@@ -6,7 +6,10 @@ use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 use Vadim\BlogBundle\Entity\About;
-
+use Vadim\BlogBundle\Entity\Article;
+use Vadim\BlogBundle\Entity\Tag;
+use Doctrine\ORM\EntityManager;
+use Doctrine\ORM\QueryBuilder;
 
 class LoadAboutData extends AbstractFixture implements OrderedFixtureInterface
 {
@@ -23,6 +26,8 @@ class LoadAboutData extends AbstractFixture implements OrderedFixtureInterface
             $manager->persist($about);
 
         $manager->flush();
+
+
     }
 
     /**
@@ -32,4 +37,7 @@ class LoadAboutData extends AbstractFixture implements OrderedFixtureInterface
     {
         return 2;
     }
+
+
+
 }

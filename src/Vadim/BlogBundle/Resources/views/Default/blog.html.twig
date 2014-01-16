@@ -5,21 +5,29 @@
 
 {% block page_content %}
 
-    {% for article in articles %}
-        <p><a href="{{ path('_see', {'id': article.id}) }}">
-            {{ article.title }}</a></p>
-            {{- article.body|dotdotdot(5) -}}
-        <br>
-            {{ article.created|date('d.m.Y') }}
-        <br>
-            <a href="{{ path('_category' ,{'id':article.category.id}) }}"> {{ article.category.name }}</a>
-        <br>
 
-    {% for tag in article.tags %}
-        <a href="{{ path('_tag' ,{'id':tag.id})}}"> {{ tag.name }}</a>
-    {% endfor %}
-    <br>
-{% endfor %}
-    {#{{ form(formSearch) }}#}
+    {#{% for article in articles %}#}
+        {#<p><a href="{{ path('_see', {'id': article.id}) }}">#}
+            {#{{ article.title }}</a></p>#}
+            {#{{ article.body|dotdotdot(5) }}#}
+        {#<br>#}
+            {#{{ article.created|date('d.m.Y') }}#}
+        {#<br>#}
+            {#<a href="{{ path('_category' ,{'id':article.category.id}) }}"> {{ article.category.name }}</a>#}
+        {#<br>#}
+
+    {#{% for tag in article.tags %}#}
+        {#<a href="{{ path('_tag' ,{'id':tag.id})}}"> {{ tag.name }}</a>#}
+    {#{% endfor %}#}
+    {#<br>#}
+{#{% endfor %}#}
+    {{ render(controller('VadimBlogBundle:Default:showArticles', { 'page' : 1})) }}
+<ul class="nav nav-tabs">
+ <div id="1">
+
+</div>
+
+    <input type="button" id="but1" value="Show More" />
+       {#{{ form(formSearch) }}#}
+    </ul>
 {% endblock page_content %}
-

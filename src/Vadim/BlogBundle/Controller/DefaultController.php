@@ -11,62 +11,79 @@ use Pagerfanta\Pagerfanta;
 use Vadim\BlogBundle\Form\Type\SearchType;
 use Vadim\BlogBundle\Entity\Search;
 use Symfony\Component\HttpFoundation\Request;
+use Doctrine\ORM\EntityManager;
+use Doctrine\ORM\QueryBuilder;
+use Symfony\Component\HttpFoundation\RedirectResponse;
+
 
 class DefaultController extends Controller
 {
     /**
      * @Template()
      */
-    public function blogAction(Request $request)
+    public function blogAction()
+    {
+//        $em = $this->getDoctrine()->getManager();
+//
+//
+//        $articles = $em
+//            ->getRepository('VadimBlogBundle:Article')
+//            ->findAll();
+        //$category = $articles->getArticles();
+        return array('mostViewArticles'=> $this->mostViewArticles(),
+                     'lastArticles' =>  $this->lastArticles(),
+                     'lastPosts' => $this->lastPosts(),
+                     'tagCloud' => $this->tagCloud());//,
+                    // 'search' =>$this->searchArticleAction($request));
+
+    }
+
+
+    public function showArticlesAction($page)
     {
         $em = $this->getDoctrine()->getManager();
 
-
-        $articles = $em
+        $queryBuilder = $em
             ->getRepository('VadimBlogBundle:Article')
-            ->findAll();
-        //$category = $articles->getArticles();
-        return array('articles' => $articles,
-                     'mostViewArticles'=> $this->mostViewArticles(),
-                     'lastArticles' =>  $this->lastArticles(),
-                     'lastPosts' => $this->lastPosts());
-                    // 'formSearch' => $this->search($request));
+            ->findByLastArticlesQuery();
 
+        $adapter = new DoctrineORMAdapter($queryBuilder);
+        $pagerfanta = new Pagerfanta($adapter);
+        $pagerfanta->setMaxPerPage(2);
+        $pagerfanta->setCurrentPage($page);
+        $nextPage = $page + 1;
+
+        return $this->render(
+            'VadimBlogBundle:Default:showArticles.html.twig',
+            array(
+                'articles' => $pagerfanta->getCurrentPageResults(),
+                'nextPage'=> $nextPage
+            ));
     }
 
-    public function search(Request $request)
-    {
-        $search = new Search();
 
-        $form =$this->createForm(new SearchType(), $search);
-
-        $form->handleRequest($request);
-
-        if ($form->isValid()) {
-           return $this->redirect($this->generateUrl('_searchArticle',array('title' => $search)));
-        }
-
-        return  $form->createView();
-    }
     /**
      * @Template()
      */
-    public function aboutAction()
+    public function aboutAction(Request $request)
     {
         $about = $this->getDoctrine()
             ->getRepository('VadimBlogBundle:About')
             ->findAll();
+
         return array('about' => $about,
             'mostViewArticles'=> $this->mostViewArticles(),
             'lastArticles' =>  $this->lastArticles(),
-            'lastPosts' => $this->lastPosts());
+            'lastPosts' => $this->lastPosts(),
+//            'search' =>$this->searchArticleAction($request));//,
+            'tagCloud' => $this->tagCloud());
 
     }
 
     /**
      * @Template()
      */
-    public function seeAction($id)
+    public function seeAction($id,Request $request)
     {
         $em = $this->getDoctrine()->getManager();
         $article = $em
@@ -80,24 +97,52 @@ class DefaultController extends Controller
         return array('article' => $article,
             'mostViewArticles'=> $this->mostViewArticles(),
             'lastArticles' =>  $this->lastArticles(),
-            'lastPosts' => $this->lastPosts());
+            'lastPosts' => $this->lastPosts(),
+            'tagCloud' => $this->tagCloud());//,
+          //  'search' =>$this->searchArticleAction($request));
+    }
 
+    public function searchArticleAction(Request $request)
+    {
+
+        $search = new Search();
+
+
+        $form =$this->createFormBuilder($search)
+            ->add('name', 'text')
+            ->add('save', 'submit')
+            ->getForm();
+//            (new SearchType(), $search);
+        $form->handleRequest($request);
+
+        if ($form->isValid()) {
+            //var_dump($form->getData('name'));
+            $this->redirect("localhost/web/app_dev.php/resultSearch/");
+     }
+//
+        //echo('blala fjv');
+        return
+            $this->render(
+                'VadimBlogBundle:Default:searchArticle.html.twig',
+                       array( 'form' => $form->createView()));
 
     }
     /**
      * @Template()
      */
-    public function searchArticleAction($title)
+    public function resultSearchAction()
     {
+        $title = 'title';
         $em = $this->getDoctrine()->getManager();
         $articles = $em
             ->getRepository('VadimBlogBundle:Article')
             ->findByTitleLike($title,10);
-        return array('articles' => $articles,
+        return array('article' => $articles,
             'mostViewArticles'=> $this->mostViewArticles(),
             'lastArticles' =>  $this->lastArticles(),
-            'lastPosts' => $this->lastPosts());
-
+            'lastPosts' => $this->lastPosts(),
+            'tagCloud' => $this->tagCloud());//,
+//            'search' =>$this->searchArticleAction($request));
     }
 
     /**
@@ -158,7 +203,7 @@ class DefaultController extends Controller
     /**
      * @Template()
      */
-    public function tagAction($id)
+    public function tagAction($id, Request $request)
     {
         $em = $this->getDoctrine()->getManager();
 
@@ -169,14 +214,16 @@ class DefaultController extends Controller
         return array('articles' => $articles, 'tag' => $tag,
             'mostViewArticles'=> $this->mostViewArticles(),
             'lastArticles' =>  $this->lastArticles(),
-            'lastPosts' => $this->lastPosts());
+            'lastPosts' => $this->lastPosts(),
+            'tagCloud' => $this->tagCloud());//,
+//            'search' =>$this->searchArticleAction($request));
 
     }
 
     /**
      * @Template()
      */
-    public function categoryAction($id)
+    public function categoryAction($id, Request $request)
     {
         $em = $this->getDoctrine()->getManager();
 
@@ -187,9 +234,21 @@ class DefaultController extends Controller
         return array('articles' => $articles, 'category' => $category,
             'mostViewArticles'=> $this->mostViewArticles(),
             'lastArticles' =>  $this->lastArticles(),
-            'lastPosts' => $this->lastPosts());
+            'lastPosts' => $this->lastPosts(),
+            'tagCloud' => $this->tagCloud());//,
+            //'search' =>$this->searchArticleAction($request));
 
     }
 
+    public function tagCloud()
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        return $em
+            ->getRepository('VadimBlogBundle:Tag')
+            ->findAll();
+
+
+    }
 
 }

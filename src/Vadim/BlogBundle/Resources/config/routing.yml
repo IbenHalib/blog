@@ -15,7 +15,7 @@ _lastArticles:
         defaults: {_controller: VadimBlogBundle:Default:lastArticles}
 
 _searchArticle:
-        pattern: /searchArticle/{title}
+        pattern: /searchArticle/
         defaults: {_controller: VadimBlogBundle:Default:searchArticle}
 
 _tag:
@@ -27,6 +27,17 @@ _category:
         defaults: {_controller: VadimBlogBundle:Default:category}
 
 _blog:
-        pattern: /blog/
+        pattern: /
         defaults: {_controller: VadimBlogBundle:Default:blog}
 
+#_tagCloud:
+#        pattern: /tagCloud/
+#        defaults: {_controller: VadimBlogBundle:Default:tagCloud}
+
+_showArticles:
+        pattern: /showArticles/{page}
+        defaults: {_controller: VadimBlogBundle:Default:showArticles, page: 1}
+
+_resultSearch:
+        pattern: /resultSearch/
+        defaults: {_controller: VadimBlogBundle:Default:showArticles}

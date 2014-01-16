@@ -1,13 +1,20 @@
 {% extends 'VadimBlogBundle::layout.html.twig' %}
 
 
-    {% block navbar %}
-        {% include('VadimBlogBundle:Default:nav_menu.html.twig') %}
-    {% endblock navbar %}
+{#{% block search %}#}
+    {#{{ include(#}
+    {#'VadimBlogBundle:Default:searchArticle.html.twig',{'form':search.form}#}
+    {#) }}#}
+{#{% endblock search %}#}
 
-                {% block panel %}
+{% block panel %}
 
-                        {{ include('VadimBlogBundle:Default:panel.html.twig', {'mostViewArticles': mostViewArticles , 'lastArticles':lastArticles, 'lastPosts':lastPosts}) }}
+    {{ include('VadimBlogBundle:Default:panel.html.twig', {'mostViewArticles': mostViewArticles,
+                                                           'lastArticles':lastArticles,
+                                                           'lastPosts':lastPosts,
+                                                           'tagCloud':tagCloud }) }}
 
-                {% endblock panel %}
+{% endblock panel %}
+
+
 

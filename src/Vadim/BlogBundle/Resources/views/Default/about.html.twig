@@ -8,6 +8,7 @@
 {% block page_content %}
 
 
+{#{{ form(search.form) }}#}
 
     {% for about_me in about %}
         <h1>{{ about_me.title }}</h1>
@@ -15,8 +16,13 @@
 
 
     {% endfor %}
-
+    {#{{ render(controller('VadimBlogBundle:Default:searchArticle')) }}#}
     {#{{ include(#}
     {#'VadimBlogBundle:Default:panel.html.twig',{}#}
     {#) }}#}
+
+
+
+
+
 {% endblock page_content %}
