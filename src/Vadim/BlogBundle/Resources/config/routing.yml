@@ -40,4 +40,4 @@ _showArticles:
 
 _resultSearch:
         pattern: /resultSearch/
-        defaults: {_controller: VadimBlogBundle:Default:showArticles}
+        defaults: {_controller: VadimBlogBundle:Default:resultSearch}

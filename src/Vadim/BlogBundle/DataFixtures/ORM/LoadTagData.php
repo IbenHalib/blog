@@ -18,8 +18,8 @@ class LoadTagData extends AbstractFixture implements OrderedFixtureInterface
      */
     public function load(ObjectManager $manager)
     {
-        $tagsData = array('css' ,'symfony',
-            'php','html');
+        $tagsData = array('Tag1' ,'Tag2',
+            'Tag3','Tag4');
 
 
         foreach ($tagsData as  $value) {

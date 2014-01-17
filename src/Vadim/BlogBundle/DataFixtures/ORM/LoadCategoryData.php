@@ -19,8 +19,8 @@
       */
      public function load(ObjectManager $manager)
      {
-     $categoriesData = array('symfony categories' ,'programing categories',
-     'php categories','html categories');
+     $categoriesData = array('categories1' ,'categories2',
+     'categories3','categories4');
 
 
 

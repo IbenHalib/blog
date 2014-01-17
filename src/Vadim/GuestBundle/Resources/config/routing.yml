@@ -14,3 +14,7 @@ vadim_guest_delete:
 vadim_guest_see:
      pattern:  /guest/see/{id}
      defaults: { _controller: VadimGuestBundle:Default:see }
+
+vadim_guest_posts:
+     pattern:  /guest/posts/{page}
+     defaults: { _controller: VadimGuestBundle:Default:posts, page: 1 }

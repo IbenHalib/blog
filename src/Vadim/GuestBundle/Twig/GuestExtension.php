@@ -1,8 +1,8 @@
 <?php
 
-namespace Vadim\BlogBundle\Twig;
+namespace Vadim\GuestBundle\Twig;
 
-class BlogExtension extends \Twig_Extension
+class GuestExtension extends \Twig_Extension
 {
     public function getFilters()
     {
@@ -11,7 +11,7 @@ class BlogExtension extends \Twig_Extension
         );
     }
 
-    public function dotdotdot($string, $number)
+    public function dotdotdot($string, $number=3)
     {
         if (strlen($string) <= $number)
             return $string;
@@ -33,6 +33,6 @@ class BlogExtension extends \Twig_Extension
 
     public function getName()
     {
-        return 'blog_extension';
+        return 'guest_extension';
     }
 }

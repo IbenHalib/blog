@@ -4,34 +4,15 @@
 {{ form(form) }}
 </div>
 
-<div class ="posts">
-    <div class="container posts-container">
- {% for post in posts %}
+    {#{{ render('VadimGuestBundle:Default:posts.html.twig', {'posts': posts})}} }}#}
+    {{ render(controller('VadimGuestBundle:Default:posts', { 'page' : 1})) }}
+    <ul class="nav nav-tabs">
+        <div id="g1">
 
-         <div class="panel panel-default">
-         <div class="panel-heading">
-             <div class="pull-left">
-                 {{ post.name }} ({{ post.email }})
-             </div>
+        </div>
 
-            <div class="panel-body">
-             {{ post.post }}
-             </div>
-         </div>
-         <ul class="nav">
-             <li class="active">
-                 <a href="{{ path('vadim_guest_delete', {'id': post.id}) }}"> {{ 'delete' }}
-                 </a>
-             </li>
-             <li> <a href="{{ path('vadim_guest_see', {'id': post.id}) }}"> {{ 'see' }}
-                 </a></li>
-
-         </ul>
-
-     </div>
-
-
-
- {% endfor %}
+        <input type="button" id="but1" value="Show More" />
+        {#{{ form(formSearch) }}#}
+    </ul>
 
 {% endblock  page_content %}

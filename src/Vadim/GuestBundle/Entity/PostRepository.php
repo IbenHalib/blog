@@ -14,4 +14,10 @@ class PostRepository extends EntityRepository
             ->getResult();
     }
 
+    public function findByLastPostsQuery()
+    {
+        return $this->getEntityManager()
+            ->createQuery('SELECT a FROM VadimGuestBundle:Post a ORDER BY a.id DESC');
+
+    }
 }

@@ -1,7 +1,8 @@
 {% for article in articles %}
+<div class="panel panel-default">
         <p><a href="{{ path('_see', {'id': article.id}) }}">
             {{ article.title }}</a></p>
-            {{ article.body|dotdotdot(5) }}
+            {{ article.body|dotdotdot(400) }}
         <br>
             {{ article.created|date('d.m.Y') }}
         <br>
@@ -10,6 +11,7 @@
 
     {% for tag in article.tags %}
         <a href="{{ path('_tag' ,{'id':tag.id})}}"> {{ tag.name }}</a>
+        </div>
     {% endfor %}
     <br>
 {% endfor %}

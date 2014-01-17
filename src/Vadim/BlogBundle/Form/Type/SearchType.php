@@ -11,12 +11,12 @@ class SearchType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder->add('name', 'text')
-                ->add('ok', 'submit') ;
+                ->add('save', 'submit') ;
 
     }
     public function getName()
     {
-        return 'search';
+        return 'text';
     }
 
 

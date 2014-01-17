@@ -1,0 +1,32 @@
+<div class ="posts">
+    <div class="container posts-container">
+        {% for post in posts %}
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <div class="pull-left">
+                    {{ post.name|dotdotdot(10) }} ({{ post.email }})
+                </div>
+
+                <div class="panel-body">
+                    {{ post.post|dotdotdot(40) }}
+                </div>
+            </div>
+            <ul class="nav">
+                <li class="active">
+                    <a href="{{ path('vadim_guest_delete', {'id': post.id}) }}"> {{ 'delete' }}
+                    </a>
+                </li>
+                <li> <a href="{{ path('vadim_guest_see', {'id': post.id}) }}"> {{ 'see' }}
+                    </a></li>
+
+            </ul>
+
+        </div>
+
+
+
+{% endfor %}
+        <div id="{{ nextPage }}">
+
+        </div>

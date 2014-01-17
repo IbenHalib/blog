@@ -5,6 +5,7 @@ namespace Vadim\GuestBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+use Symfony\Component\Validator\Constraints\Null;
 use Vadim\GuestBundle\Entity\Post;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -12,6 +13,8 @@ use Vadim\GuestBundle\Form\Type\PostType;
 use Doctrine\ORM\Query;
 use Knp\Bundle\PaginatorBundle\Pagination\SlidingPagination;
 use Knp\Component\Pager\Paginator;
+use Pagerfanta\Adapter\DoctrineORMAdapter;
+use Pagerfanta\Pagerfanta;
 
 class DefaultController extends Controller
 {
@@ -39,7 +42,7 @@ class DefaultController extends Controller
 //            //$this->container->getParameter('posts_on_page')
 //        );
 
-        $posts = $manager ->getRepository('VadimGuestBundle:Post')->findAll();
+//        $posts = $manager ->getRepository('VadimGuestBundle:Post')->findAll();
 
         //var_dump($paginator);
         $form->handleRequest($request);
@@ -51,12 +54,34 @@ class DefaultController extends Controller
 //                return $this->redirect($this->generateUrl('vadim_guest_create'));
         }
 
+        $post=Null;
         return $this->render('VadimGuestBundle:Default:index.html.twig', array(
-            'posts' => $posts,
+//            'posts' => $posts,
             'form' => $form->createView(),
         ));
     }
 
+    public function postsAction($page)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $queryBuilder = $em
+            ->getRepository('VadimGuestBundle:Post')
+            ->findByLastPostsQuery();
+
+        $adapter = new DoctrineORMAdapter($queryBuilder);
+        $pagerfanta = new Pagerfanta($adapter);
+        $pagerfanta->setMaxPerPage($this->container->getParameter('article_in_page'));
+        $pagerfanta->setCurrentPage($page);
+        $nextPage = $page + 1;
+
+        return $this->render(
+            'VadimGuestBundle:Default:posts.html.twig',
+            array(
+                'posts' => $pagerfanta->getCurrentPageResults(),
+                'nextPage'=> $nextPage
+            ));
+    }
     public function createAction()
     {
         return $this->render('VadimGuestBundle:Default:layout.html.twig');

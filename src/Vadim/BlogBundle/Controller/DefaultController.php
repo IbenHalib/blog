@@ -23,13 +23,7 @@ class DefaultController extends Controller
      */
     public function blogAction()
     {
-//        $em = $this->getDoctrine()->getManager();
-//
-//
-//        $articles = $em
-//            ->getRepository('VadimBlogBundle:Article')
-//            ->findAll();
-        //$category = $articles->getArticles();
+
         return array('mostViewArticles'=> $this->mostViewArticles(),
                      'lastArticles' =>  $this->lastArticles(),
                      'lastPosts' => $this->lastPosts(),
@@ -49,7 +43,7 @@ class DefaultController extends Controller
 
         $adapter = new DoctrineORMAdapter($queryBuilder);
         $pagerfanta = new Pagerfanta($adapter);
-        $pagerfanta->setMaxPerPage(2);
+        $pagerfanta->setMaxPerPage($this->container->getParameter('article_in_page'));
         $pagerfanta->setCurrentPage($page);
         $nextPage = $page + 1;
 
@@ -98,30 +92,17 @@ class DefaultController extends Controller
             'mostViewArticles'=> $this->mostViewArticles(),
             'lastArticles' =>  $this->lastArticles(),
             'lastPosts' => $this->lastPosts(),
-            'tagCloud' => $this->tagCloud());//,
-          //  'search' =>$this->searchArticleAction($request));
+            'tagCloud' => $this->tagCloud());
+
     }
 
     public function searchArticleAction(Request $request)
     {
-
         $search = new Search();
-
-
-        $form =$this->createFormBuilder($search)
-            ->add('name', 'text')
-            ->add('save', 'submit')
-            ->getForm();
-//            (new SearchType(), $search);
+        $form =$this->createForm(new SearchType(),$search);
         $form->handleRequest($request);
 
-        if ($form->isValid()) {
-            //var_dump($form->getData('name'));
-            $this->redirect("localhost/web/app_dev.php/resultSearch/");
-     }
-//
-        //echo('blala fjv');
-        return
+         return
             $this->render(
                 'VadimBlogBundle:Default:searchArticle.html.twig',
                        array( 'form' => $form->createView()));
@@ -130,19 +111,32 @@ class DefaultController extends Controller
     /**
      * @Template()
      */
-    public function resultSearchAction()
+    public function resultSearchAction( Request $request)
     {
-        $title = 'title';
+        $search = new Search();
+        $form =$this->createForm(new SearchType(),$search);
+        $form->handleRequest($request);
+
+        if ($form->isValid()) {
+
+        $title = $search->getName();
+           // $title = $formData->Name;
         $em = $this->getDoctrine()->getManager();
         $articles = $em
             ->getRepository('VadimBlogBundle:Article')
-            ->findByTitleLike($title,10);
-        return array('article' => $articles,
+            ->findByTitleLike($title);
+            }
+        else{
+            $articles = '';
+        }
+
+
+        return array('articles' => $articles,
             'mostViewArticles'=> $this->mostViewArticles(),
             'lastArticles' =>  $this->lastArticles(),
             'lastPosts' => $this->lastPosts(),
-            'tagCloud' => $this->tagCloud());//,
-//            'search' =>$this->searchArticleAction($request));
+            'tagCloud' => $this->tagCloud());
+
     }
 
     /**
@@ -154,7 +148,7 @@ class DefaultController extends Controller
 
         $articles = $em
             ->getRepository('VadimBlogBundle:Article')
-            ->findByLastArticles(10);
+            ->findByLastArticles($this->container->getParameter('panel_link'));
         return array('articles' => $articles);
     }
 
@@ -163,7 +157,7 @@ class DefaultController extends Controller
 
         return $em
             ->getRepository('VadimBlogBundle:Article')
-            ->findByLastArticles(10);
+            ->findByLastArticles($this->container->getParameter('panel_link'));
     }
 
 
@@ -176,7 +170,7 @@ class DefaultController extends Controller
 
         $articles = $em
             ->getRepository('VadimBlogBundle:Article')
-            ->findByMostViewArticles(20);
+            ->findByMostViewArticles($this->container->getParameter('panel_link'));
         return array('articles' => $articles);
     }
 
@@ -186,7 +180,7 @@ class DefaultController extends Controller
 
         return  $em
             ->getRepository('VadimBlogBundle:Article')
-            ->findByMostViewArticles(20);
+            ->findByMostViewArticles($this->container->getParameter('panel_link'));
 
     }
 
@@ -196,7 +190,7 @@ class DefaultController extends Controller
 
         return  $em
             ->getRepository('VadimGuestBundle:Post')
-            ->findByLastPosts(20);
+            ->findByLastPosts($this->container->getParameter('panel_link'));
     }
 
 

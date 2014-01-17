@@ -28,13 +28,12 @@ class ArticleRepository extends EntityRepository
             ->getResult();
     }
 
-    public function findByTitleLike($title, $limit)
+    public function findByTitleLike($title)
     {
 
         return $this->getEntityManager()
             ->createQuery("SELECT a FROM VadimBlogBundle:Article a WHERE a.title LIKE :title ORDER BY a.id DESC")
             ->setParameter('title', '%'.$title.'%')
-            ->setMaxResults($limit)
             ->getResult();
     }
 

@@ -10,7 +10,8 @@
     <br>
 
     {% for tag in article.tags %}
-        {#<a href="{{ path('_tag' ,{'id': tag.id}}}}"> {{ tag.name }}</a>#}
+        <a href="{{ path('_tag' ,{'id':tag.id})}}"> {{ tag.name }}</a>
+
     {% endfor %}
     <br>
 {% endblock page_content %}
