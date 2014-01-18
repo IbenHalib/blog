@@ -23,13 +23,44 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="DefaultControllerTest.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="DefaultControllerTest.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Vadim/BlogBundle/Tests/Controller/DefaultControllerTest.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="19" column="10" selection-start="591" selection-end="591" vertical-scroll-proportion="0.65267175" vertical-offset="0" max-vertical-offset="524">
+            <state line="18" column="2" selection-start="508" selection-end="508" vertical-scroll-proportion="-12.0" vertical-offset="0" max-vertical-offset="468">
               <folding>
                 <element signature="e#53#105#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PanelController.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Vadim/BlogBundle/Controller/PanelController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="20" column="0" selection-start="623" selection-end="623" vertical-scroll-proportion="-13.333333" vertical-offset="0" max-vertical-offset="486">
+              <folding>
+                <element signature="e#47#104#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DefaultController.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Vadim/BlogBundle/Controller/DefaultController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="622" vertical-scroll-proportion="54.0" vertical-offset="1458" max-vertical-offset="4572">
+              <folding>
+                <element signature="e#47#104#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".travis.yml" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.travis.yml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="10" column="0" selection-start="106" selection-end="106" vertical-scroll-proportion="0.34155598" vertical-offset="0" max-vertical-offset="527">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -90,24 +121,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="config_dev.yml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/config/config_dev.yml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="756">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="parameters.yml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/config/parameters.yml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="16" column="22" selection-start="434" selection-end="434" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="396">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
     </leaf>
   </component>
   <component name="FindManager">
@@ -118,7 +131,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/Vadim/BlogBundle/Form/Type/PostType.php" />
         <option value="$PROJECT_DIR$/src/Vadim/BlogBundle/Entity/Search.php" />
         <option value="$PROJECT_DIR$/src/Vadim/BlogBundle/Resources/views/Default/mostViewArticles.html.twig" />
         <option value="$PROJECT_DIR$/src/Vadim/BlogBundle/Resources/views/Default/lastPosts.html.twig" />
@@ -169,6 +181,7 @@
         <option value="$PROJECT_DIR$/app/config/routing.yml" />
         <option value="$PROJECT_DIR$/app/config/routing_dev.yml" />
         <option value="$PROJECT_DIR$/src/Vadim/BlogBundle/Tests/Controller/DefaultControllerTest.php" />
+        <option value="$PROJECT_DIR$/src/Vadim/BlogBundle/Controller/PanelController.php" />
       </list>
     </option>
   </component>
@@ -844,7 +857,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-4" y="24" width="1374" height="723" extended-state="6" />
+    <frame x="-4" y="24" width="1374" height="723" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -886,11 +899,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/Vadim/BlogBundle/DependencyInjection/Configuration.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="612" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Vadim/BlogBundle/Resources/views/Default/resultSearch.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state line="15" column="62" selection-start="407" selection-end="435" vertical-scroll-proportion="-10.0" vertical-offset="0" max-vertical-offset="522" />
@@ -908,7 +916,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Vadim/BlogBundle/Form/Type/SearchType.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="27" selection-start="389" selection-end="389" vertical-scroll-proportion="-8.666667" vertical-offset="0" max-vertical-offset="630" />
+        <state line="13" column="27" selection-start="389" selection-end="389" vertical-scroll-proportion="-8.666667" vertical-offset="0" max-vertical-offset="630">
+          <folding>
+            <element signature="e#46#86#0" expanded="false" />
+          </folding>
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Vadim/BlogBundle/Resources/views/Default/lastArticles.html.twig">
@@ -948,7 +960,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Vadim/BlogBundle/Entity/Article.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="35" selection-start="284" selection-end="343" vertical-scroll-proportion="33.333332" vertical-offset="1080" max-vertical-offset="3852" />
+        <state line="13" column="35" selection-start="284" selection-end="343" vertical-scroll-proportion="33.333332" vertical-offset="1080" max-vertical-offset="3852">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Vadim/BlogBundle/Entity/ArticleRepository.php">
@@ -974,13 +988,6 @@
     <entry file="file://$PROJECT_DIR$/src/Vadim/BlogBundle/Resources/views/Default/showMore.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="79" selection-start="79" selection-end="79" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="108" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Vadim/BlogBundle/Controller/DefaultController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="0" selection-start="265" selection-end="334" vertical-scroll-proportion="-5.3333335" vertical-offset="0" max-vertical-offset="4572">
-          <folding />
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Vadim/GuestBundle/DependencyInjection/VadimGuestExtension.php">
@@ -1052,13 +1059,6 @@
     <entry file="file://$PROJECT_DIR$/src/Vadim/BlogBundle/Resources/config/routing.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="42" column="69" selection-start="1189" selection-end="1189" vertical-scroll-proportion="0.0" vertical-offset="2" max-vertical-offset="864">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Vadim/BlogBundle/Controller/PanelController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="551">
           <folding />
         </state>
       </provider>
@@ -1209,10 +1209,35 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Vadim/BlogBundle/Tests/Controller/DefaultControllerTest.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="10" selection-start="591" selection-end="591" vertical-scroll-proportion="0.65267175" vertical-offset="0" max-vertical-offset="524">
+        <state line="18" column="2" selection-start="508" selection-end="508" vertical-scroll-proportion="-12.0" vertical-offset="0" max-vertical-offset="468">
           <folding>
             <element signature="e#53#105#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Vadim/BlogBundle/Controller/PanelController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="20" column="0" selection-start="623" selection-end="623" vertical-scroll-proportion="-13.333333" vertical-offset="0" max-vertical-offset="486">
+          <folding>
+            <element signature="e#47#104#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Vadim/BlogBundle/Controller/DefaultController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="622" vertical-scroll-proportion="54.0" vertical-offset="1458" max-vertical-offset="4572">
+          <folding>
+            <element signature="e#47#104#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.travis.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="0" selection-start="106" selection-end="106" vertical-scroll-proportion="0.34155598" vertical-offset="0" max-vertical-offset="527">
+          <folding />
         </state>
       </provider>
     </entry>
