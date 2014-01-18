@@ -18,5 +18,5 @@ use Symfony\Component\HttpFoundation\RedirectResponse;
 
 class AddArticlesController extends Controller
 {
-    
+
 }
