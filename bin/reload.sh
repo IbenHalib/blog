@@ -4,7 +4,8 @@ cd `dirname "$0"`
 cd ..
 
 set -x
-
+curl -s https://getcomposer.org/installer | php
+php composer.phar install
 php app/console doctrine:database:drop --force
 
 find app/cache/ -type d -maxdepth 1 -mindepth 1 | while read L; do
