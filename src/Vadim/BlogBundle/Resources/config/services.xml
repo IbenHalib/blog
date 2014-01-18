@@ -17,8 +17,13 @@
         </service>
     </services>
     -->
+    <!--panel_link: 5-->
+    <!--article_in_page: 3-->
 
-
+    <!--<parameters>-->
+        <!--<parameter key="panel_link">"5"</parameter>-->
+        <!--<parameter key=" article_in_page">"3"</parameter>-->
+    <!--</parameters>-->
     <services>
         <service id="vadim.twig.blog_extension" class="Vadim\BlogBundle\Twig\BlogExtension">
             <tag name="twig.extension" />

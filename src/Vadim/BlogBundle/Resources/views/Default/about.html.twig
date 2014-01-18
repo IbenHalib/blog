@@ -1,5 +1,4 @@
-{% extends "VadimBlogBundle:Default:blog_layot.html.twig" %}
-
+{% extends 'VadimBlogBundle::layout.html.twig' %}
 
 {% block title %}
     About me
@@ -16,13 +15,5 @@
 
 
     {% endfor %}
-    {#{{ render(controller('VadimBlogBundle:Default:searchArticle')) }}#}
-    {#{{ include(#}
-    {#'VadimBlogBundle:Default:panel.html.twig',{}#}
-    {#) }}#}
-
-
-
-
 
 {% endblock page_content %}

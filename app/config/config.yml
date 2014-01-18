@@ -2,8 +2,8 @@ imports:
     - { resource: parameters.yml }
     - { resource: security.yml }
 
-panel_link: 5
-article_in_page: 3
+#panel_link: 5
+#article_in_page: 3
 framework:
     #esi:             ~
     #translator:      { fallback: "%locale%" }

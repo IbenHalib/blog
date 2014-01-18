@@ -24,11 +24,7 @@ class DefaultController extends Controller
     public function blogAction()
     {
 
-        return array('mostViewArticles'=> $this->mostViewArticles(),
-                     'lastArticles' =>  $this->lastArticles(),
-                     'lastPosts' => $this->lastPosts(),
-                     'tagCloud' => $this->tagCloud());//,
-                    // 'search' =>$this->searchArticleAction($request));
+        return array();
 
     }
 
@@ -65,12 +61,7 @@ class DefaultController extends Controller
             ->getRepository('VadimBlogBundle:About')
             ->findAll();
 
-        return array('about' => $about,
-            'mostViewArticles'=> $this->mostViewArticles(),
-            'lastArticles' =>  $this->lastArticles(),
-            'lastPosts' => $this->lastPosts(),
-//            'search' =>$this->searchArticleAction($request));//,
-            'tagCloud' => $this->tagCloud());
+        return array('about' => $about);
 
     }
 
@@ -88,11 +79,7 @@ class DefaultController extends Controller
         $article->setNumberOfViews($article->getNumberOfViews() + 1);
         $em->flush();
 
-        return array('article' => $article,
-            'mostViewArticles'=> $this->mostViewArticles(),
-            'lastArticles' =>  $this->lastArticles(),
-            'lastPosts' => $this->lastPosts(),
-            'tagCloud' => $this->tagCloud());
+        return array('article' => $article);
 
     }
 
@@ -130,13 +117,7 @@ class DefaultController extends Controller
             $articles = '';
         }
 
-
-        return array('articles' => $articles,
-            'mostViewArticles'=> $this->mostViewArticles(),
-            'lastArticles' =>  $this->lastArticles(),
-            'lastPosts' => $this->lastPosts(),
-            'tagCloud' => $this->tagCloud());
-
+        return array('articles' => $articles);
     }
 
     /**
@@ -152,15 +133,6 @@ class DefaultController extends Controller
         return array('articles' => $articles);
     }
 
-    public function lastArticles()
-    {   $em = $this->getDoctrine()->getManager();
-
-        return $em
-            ->getRepository('VadimBlogBundle:Article')
-            ->findByLastArticles($this->container->getParameter('panel_link'));
-    }
-
-
     /**
      * @Template()
      */
@@ -174,26 +146,6 @@ class DefaultController extends Controller
         return array('articles' => $articles);
     }
 
-    public function mostViewArticles()
-    {
-        $em = $this->getDoctrine()->getManager();
-
-        return  $em
-            ->getRepository('VadimBlogBundle:Article')
-            ->findByMostViewArticles($this->container->getParameter('panel_link'));
-
-    }
-
-    public function lastPosts()
-    {
-        $em = $this->getDoctrine()->getManager();
-
-        return  $em
-            ->getRepository('VadimGuestBundle:Post')
-            ->findByLastPosts($this->container->getParameter('panel_link'));
-    }
-
-
     /**
      * @Template()
      */
@@ -205,13 +157,7 @@ class DefaultController extends Controller
             ->getRepository('VadimBlogBundle:Tag')
             ->find($id);
         $articles = $tag->getArticles();
-        return array('articles' => $articles, 'tag' => $tag,
-            'mostViewArticles'=> $this->mostViewArticles(),
-            'lastArticles' =>  $this->lastArticles(),
-            'lastPosts' => $this->lastPosts(),
-            'tagCloud' => $this->tagCloud());//,
-//            'search' =>$this->searchArticleAction($request));
-
+        return array('articles' => $articles, 'tag' => $tag);
     }
 
     /**
@@ -225,24 +171,9 @@ class DefaultController extends Controller
             ->getRepository('VadimBlogBundle:Category')
             ->find($id);
         $articles = $category->getArticles();
-        return array('articles' => $articles, 'category' => $category,
-            'mostViewArticles'=> $this->mostViewArticles(),
-            'lastArticles' =>  $this->lastArticles(),
-            'lastPosts' => $this->lastPosts(),
-            'tagCloud' => $this->tagCloud());//,
-            //'search' =>$this->searchArticleAction($request));
+        return array('articles' => $articles, 'category' => $category);
 
     }
 
-    public function tagCloud()
-    {
-        $em = $this->getDoctrine()->getManager();
-
-        return $em
-            ->getRepository('VadimBlogBundle:Tag')
-            ->findAll();
-
-
-    }
 
 }

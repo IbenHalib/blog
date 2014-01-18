@@ -6,14 +6,6 @@ _see:
         pattern: /see/{id}
         defaults: {_controller: VadimBlogBundle:Default:see}
 
-_mostView:
-        pattern: /mostView/
-        defaults: {_controller: VadimBlogBundle:Default:mostView}
-
-_lastArticles:
-        pattern: /lastArticles/
-        defaults: {_controller: VadimBlogBundle:Default:lastArticles}
-
 _searchArticle:
         pattern: /searchArticle/
         defaults: {_controller: VadimBlogBundle:Default:searchArticle}
@@ -41,3 +33,20 @@ _showArticles:
 _resultSearch:
         pattern: /resultSearch/
         defaults: {_controller: VadimBlogBundle:Default:resultSearch}
+
+
+_mostViewArticles:
+        pattern: /mostView/
+        defaults: {_controller: VadimBlogBundle:Panel:mostViewArticles}
+
+_lastArticles:
+        pattern: /lastArticles/
+        defaults: {_controller: VadimBlogBundle:Panel:lastArticles}
+
+_lastPosts:
+        pattern: /lastPosts/
+        defaults: {_controller: VadimBlogBundle:Panel:lastPosts}
+
+_tagCloud:
+        pattern: /tagCloud/
+        defaults: {_controller: VadimBlogBundle:Panel:tagCloud}

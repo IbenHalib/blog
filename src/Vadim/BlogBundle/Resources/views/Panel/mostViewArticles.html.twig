@@ -1,0 +1,12 @@
+{#{% extends VadimBlogBundle::layout.html.twig %}#}
+<p> most View Articles</p>
+{#<ul class="nav navbar-nav">#}
+    {% for article in mostViewArticles %}
+
+        <a href="{{ path('_see', {'id': article.id}) }}" class="list-group-item">
+            {{ article.title }}
+        </a>
+
+
+    {% endfor %}
+{#</ul>#}

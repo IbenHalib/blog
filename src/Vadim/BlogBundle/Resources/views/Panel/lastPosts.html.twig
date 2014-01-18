@@ -1,0 +1,11 @@
+<p> Last Posts In Guest Book</p>
+{#<ul class="nav navbar-nav">#}
+    {% for post in lastPosts %}
+        {#<li class="active">#}
+            <a  href="{{ path('vadim_guest_see', {'id': post.id}) }}" class="list-group-item">
+                {{ post.name }}
+            </a>
+        {#</li>#}
+
+    {% endfor %}
+{#</ul>#}
