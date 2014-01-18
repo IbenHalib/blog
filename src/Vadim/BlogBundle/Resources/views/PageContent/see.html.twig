@@ -1,0 +1,17 @@
+{% extends 'VadimBlogBundle::layout.html.twig' %}
+{% block page_content %}
+
+    <p>{{ article.title }}</p>
+    {{ article.body }}
+    <br>
+    {{ article.created|date('d.m.Y') }}
+    <br>
+    <a href="{{ path('_category' ,{'id':article.category.id}) }}"> {{ article.category.name }}</a>
+    <br>
+
+    {% for tag in article.tags %}
+        <a href="{{ path('_tag' ,{'id':tag.id})}}"> {{ tag.name }}</a>
+
+    {% endfor %}
+    <br>
+{% endblock page_content %}

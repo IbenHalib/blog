@@ -29,14 +29,14 @@
                         <ul class="nav nav-pills">
                             {% block navbar %}
 
-                                {% include('VadimBlogBundle:Default:nav_menu.html.twig') %}
+                                {% include('VadimBlogBundle:PageContent:nav_menu.html.twig') %}
 
                             {% endblock navbar %}
 
                             <form  action="{{ path('_resultSearch' )}}" method="post" class="navbar-form navbar-right" >
                                 {#<form>#}
                                 {% block search %}
-                                    {{ render(controller('VadimBlogBundle:Default:searchArticle',{})) }}
+                                    {{ render(controller('VadimBlogBundle:PageContent:searchArticle',{})) }}
                                 {% endblock search %}
                             </form>
                         </ul>
@@ -78,12 +78,6 @@
             </footer>
 
         </div><!--/.container-->
-
-
-
-
-
-
     {% endblock body %}
 </div>
 </body>

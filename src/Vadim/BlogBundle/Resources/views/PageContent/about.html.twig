@@ -1,0 +1,19 @@
+{% extends 'VadimBlogBundle::layout.html.twig' %}
+
+{% block title %}
+    About me
+{% endblock title %}
+
+{% block page_content %}
+
+
+{#{{ form(search.form) }}#}
+
+    {% for about_me in about %}
+        <h1>{{ about_me.title }}</h1>
+        <p>{{ about_me.body }}
+
+
+    {% endfor %}
+
+{% endblock page_content %}

@@ -1,0 +1,21 @@
+{% for article in articles %}
+<div class="panel panel-default">
+        <p><a href="{{ path('_see', {'id': article.id}) }}">
+            {{ article.title }}</a></p>
+            {{ article.body|dotdotdot(400) }}
+        <br>
+            {{ article.created|date('d.m.Y') }}
+        <br>
+            <a href="{{ path('_category' ,{'id':article.category.id}) }}"> {{ article.category.name }}</a>
+        <br>
+
+    {% for tag in article.tags %}
+        <a href="{{ path('_tag' ,{'id':tag.id})}}"> {{ tag.name }}</a>
+        </div>
+    {% endfor %}
+    <br>
+{% endfor %}
+
+<div id="{{ nextPage }}">
+
+</div>

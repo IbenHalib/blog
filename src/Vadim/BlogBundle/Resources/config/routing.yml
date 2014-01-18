@@ -1,38 +1,34 @@
 _about:
         pattern: /about/
-        defaults: {_controller: VadimBlogBundle:Default:about}
+        defaults: {_controller: VadimBlogBundle:PageContent:about}
 
 _see:
         pattern: /see/{id}
-        defaults: {_controller: VadimBlogBundle:Default:see}
+        defaults: {_controller: VadimBlogBundle:PageContent:see}
 
 _searchArticle:
         pattern: /searchArticle/
-        defaults: {_controller: VadimBlogBundle:Default:searchArticle}
+        defaults: {_controller: VadimBlogBundle:PageContent:searchArticle}
 
 _tag:
         pattern: /tag/{id}
-        defaults: {_controller: VadimBlogBundle:Default:tag}
+        defaults: {_controller: VadimBlogBundle:PageContent:tag}
 
 _category:
         pattern: /category/{id}
-        defaults: {_controller: VadimBlogBundle:Default:category}
+        defaults: {_controller: VadimBlogBundle:PageContent:category}
 
 _blog:
         pattern: /
-        defaults: {_controller: VadimBlogBundle:Default:blog}
-
-#_tagCloud:
-#        pattern: /tagCloud/
-#        defaults: {_controller: VadimBlogBundle:Default:tagCloud}
+        defaults: {_controller: VadimBlogBundle:PageContent:blog}
 
 _showArticles:
         pattern: /showArticles/{page}
-        defaults: {_controller: VadimBlogBundle:Default:showArticles, page: 1}
+        defaults: {_controller: VadimBlogBundle:PageContent:showArticles, page: 1}
 
 _resultSearch:
         pattern: /resultSearch/
-        defaults: {_controller: VadimBlogBundle:Default:resultSearch}
+        defaults: {_controller: VadimBlogBundle:PageContent:resultSearch}
 
 
 _mostViewArticles:
