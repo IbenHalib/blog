@@ -6,13 +6,9 @@
 
     {#{{ render('VadimGuestBundle:Default:posts.html.twig', {'posts': posts})}} }}#}
     {{ render(controller('VadimGuestBundle:Default:posts', { 'page' : 1})) }}
-    <ul class="nav nav-tabs">
-        <div id="2">
-
-        </div>
 
         <input type="button" id="but1" value="Show More" />
         {#{{ form(formSearch) }}#}
-    </ul>
+
 
 {% endblock  page_content %}
