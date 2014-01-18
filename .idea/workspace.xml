@@ -41,10 +41,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="services.xml" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="services.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Vadim/BlogBundle/Resources/config/services.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="22" column="41" selection-start="789" selection-end="789" vertical-scroll-proportion="0.6477495" vertical-offset="65" max-vertical-offset="666">
+            <state line="20" column="0" selection-start="681" selection-end="681" vertical-scroll-proportion="0.0" vertical-offset="29" max-vertical-offset="612">
               <folding />
             </state>
           </provider>
@@ -68,10 +68,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="parameters.yml" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="parameters.yml" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/config/parameters.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="14" column="0" selection-start="393" selection-end="393" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="360">
+            <state line="15" column="9" selection-start="420" selection-end="420" vertical-scroll-proportion="0.5152672" vertical-offset="0" max-vertical-offset="524">
               <folding />
             </state>
           </provider>
@@ -80,7 +80,7 @@
       <file leaf-file-name="parameters.yml.dist" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/config/parameters.yml.dist">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="0" selection-start="380" selection-end="380" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="378">
+            <state line="15" column="4" selection-start="384" selection-end="420" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="396">
               <folding />
             </state>
           </provider>
@@ -171,9 +171,9 @@
         <option value="$PROJECT_DIR$/bin/base_script.php" />
         <option value="$PROJECT_DIR$/app/config/config.yml" />
         <option value="$PROJECT_DIR$/bin/reload.sh" />
-        <option value="$PROJECT_DIR$/app/config/parameters.yml" />
-        <option value="$PROJECT_DIR$/app/config/parameters.yml.dist" />
         <option value="$PROJECT_DIR$/src/Vadim/BlogBundle/Resources/config/services.xml" />
+        <option value="$PROJECT_DIR$/app/config/parameters.yml.dist" />
+        <option value="$PROJECT_DIR$/app/config/parameters.yml" />
       </list>
     </option>
   </component>
@@ -1185,20 +1185,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/config/parameters.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="0" selection-start="393" selection-end="393" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="360">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/config/parameters.yml.dist">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="0" selection-start="380" selection-end="380" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="378">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Vadim/BlogBundle/Resources/config/routing.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="42" column="69" selection-start="1189" selection-end="1189" vertical-scroll-proportion="0.0" vertical-offset="2" max-vertical-offset="864">
@@ -1208,7 +1194,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Vadim/BlogBundle/Resources/config/services.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="41" selection-start="789" selection-end="789" vertical-scroll-proportion="0.6477495" vertical-offset="65" max-vertical-offset="666">
+        <state line="20" column="0" selection-start="681" selection-end="681" vertical-scroll-proportion="0.0" vertical-offset="29" max-vertical-offset="612">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/config/parameters.yml.dist">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="4" selection-start="384" selection-end="420" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="396">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/config/parameters.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="9" selection-start="420" selection-end="420" vertical-scroll-proportion="0.5152672" vertical-offset="0" max-vertical-offset="524">
           <folding />
         </state>
       </provider>
