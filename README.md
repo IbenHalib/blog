@@ -1,3 +1,4 @@
+https://travis-ci.org/IbenHalib/blog.png?branch=develop
 Symfony Standard Edition
 ========================
 
