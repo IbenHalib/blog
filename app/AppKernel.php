@@ -22,9 +22,10 @@ class AppKernel extends Kernel
             new Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle(),
             new \Braincrafted\Bundle\BootstrapBundle\BraincraftedBootstrapBundle(),
             new WhiteOctober\PagerfantaBundle\WhiteOctoberPagerfantaBundle(),
+            new FOS\UserBundle\FOSUserBundle(),
             new Vadim\BlogBundle\VadimBlogBundle(),
             new Vadim\GuestBundle\VadimGuestBundle(),
-
+            new Vadim\UserBundle\VadimUserBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
