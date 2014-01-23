@@ -26,6 +26,12 @@ class AppKernel extends Kernel
             new Vadim\BlogBundle\VadimBlogBundle(),
             new Vadim\GuestBundle\VadimGuestBundle(),
             new Vadim\UserBundle\VadimUserBundle(),
+            new Sonata\CoreBundle\SonataCoreBundle(),
+            new Sonata\BlockBundle\SonataBlockBundle(),
+            new Sonata\jQueryBundle\SonatajQueryBundle(),
+            new Knp\Bundle\MenuBundle\KnpMenuBundle(),
+            new Sonata\DoctrineORMAdminBundle\SonataDoctrineORMAdminBundle(),
+            new Sonata\AdminBundle\SonataAdminBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

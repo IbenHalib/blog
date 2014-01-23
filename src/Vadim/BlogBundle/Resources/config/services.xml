@@ -28,6 +28,13 @@
         <service id="vadim.twig.blog_extension" class="Vadim\BlogBundle\Twig\BlogExtension">
             <tag name="twig.extension" />
         </service>
+
+        <!--<service id="vadim.blog.admin.article" class="Vadim\BlogBundle\Admin\ArticleAdmin">-->
+            <!--<tag name="sonata.admin" manager_type="orm" group="Blog" label="Blog"/>-->
+            <!--<argument/>-->
+            <!--<argument>Vadim\BlogBundle\Entity\Article</argument>-->
+            <!--<argument>SonataAdminBundle:CRUD</argument>-->
+        <!--</service>-->
     </services>
 
 </container>
